@@ -20,7 +20,7 @@ class mixOrMatch
     {
         this.cardToCheck = null;
         this.totalClicks = 0;
-        this.timeRemaining = this.totalTime;
+        // this.timeRemaining = this.totalTime;
         this.matchedCards = [];
         this.busy = true;
         this.shuffleCards();
@@ -28,7 +28,7 @@ class mixOrMatch
         setTimeout(() => 
         {
             this.shuffleCards();
-            this.countDown = this.startCountDown();
+            // this.countDown = this.startCountDown();
             this.busy = false;
         }, 500);
         this.hideCards();
@@ -182,6 +182,27 @@ class mixOrMatch
 function ready()
 {
     let cards = Array.from(document.getElementsByClassName('card'));
+    let container = document.getElementsByClassName("gameContainer");
+    container[0].style.display = "none";
+    let cardsDisplayed = prompt("Please enter an even number between 4 and 12.");
+    if(cardsDisplayed % 2 == 0)
+    {
+        if(cardsDisplayed >= 4 && cardsDisplayed <= 12)
+        {
+            for (let i = 0; i < cards.length - cardsDisplayed; i++)
+            {
+                cards[i].style.display = "none";
+                container[0].style.display = "inline-grid";
+            } 
+        }else
+        {
+            alert("Please enter an even number between 4 and 12.");
+        } 
+    }
+    else
+    {
+        alert("Please enter an even number.");
+    } 
     let game = new mixOrMatch(100,cards);
     game.startGame();
     cards.forEach(card => 

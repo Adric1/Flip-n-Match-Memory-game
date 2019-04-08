@@ -47,6 +47,11 @@ text styling
     justify-content: space-between;
 }
 
+#timeRemaining
+{
+    display: none;
+}
+
 .gameInfo
 {
     font-family: Impact, Helvetica, sans-serif;
