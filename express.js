@@ -7,4 +7,4 @@ app.use(expressver.static('FlipGame'));
 
 app.listen(port);
 
-console.log('listening to port:8080');
+console.log('express is listening to port:8080');
